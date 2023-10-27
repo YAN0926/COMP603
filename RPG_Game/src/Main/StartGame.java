@@ -3,8 +3,11 @@
  * The StartGame class is the entry point of the game.
  * It initializes the graphical user interface of the RPG game (RPGview) and sets it to be visible, effectively starting the game.
  * The comments added to each line or section help to clarify the functionality and purpose of the code.
+ * 
  * Name: Chi Yan Cheung
  * SID: 15950216
+ * Ranger Ng
+ * SID: 20124370
  *
  * COMP603
  * Project 2 - RPG_Game

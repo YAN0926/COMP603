@@ -3,8 +3,11 @@
  * The Defend class represents a defend action that a character (RPGmodel) can perform.
  * The execute method defines the logic for the defense action, adjusting the defender's stats and displaying the updated stats.
  * The comments added to each line or section help elucidate the functionality and purpose of the code.
+ * 
  * Name: Chi Yan Cheung
  * SID: 15950216
+ * Ranger Ng
+ * SID: 20124370
  *
  * COMP603
  * Project 2 - RPG_Game

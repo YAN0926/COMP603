@@ -1,12 +1,17 @@
 /***
-
+ * 
+ * The code defines a GUI for an RPG game, allowing users to create a character by inputting a name and selecting a class and gender.
+ * The character's stats are then displayed. Players can either finalize their character with the "Create" button, transitioning to gameplay,
+ * or exit with the "Cancel" button, returning to the main game window. The GUI layout is primarily set in the initComponents method,
+ * and the main method launches the GUI/
  * 
  * Name: Chi Yan Cheung
  * SID: 15950216
-
+ * Ranger Ng
+ * SID: 20124370
+ * 
  * COMP603
  * Project 2 - RPG_Game
-
  * 
  **/
 package GUIview;

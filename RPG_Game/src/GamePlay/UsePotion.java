@@ -3,8 +3,11 @@
  * The UsePotion class represents the action of a character (RPGmodel) using a potion.
  * The execute method defines the logic for using the potion, altering the character's stats and presenting the updated stats.
  * The comments added to each line or section help clarify the functionality and purpose of the code.
+ * 
  * Name: Chi Yan Cheung
  * SID: 15950216
+ * Ranger Ng
+ * SID: 20124370
  *
  * COMP603
  * Project 2 - RPG_Game

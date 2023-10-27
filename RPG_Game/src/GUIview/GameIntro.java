@@ -6,6 +6,8 @@
  *
  * Name: Chi Yan Cheung
  * SID: 15950216
+ * Ranger Ng
+ * SID: 20124370
  *
  * COMP603
  * Project 2 - RPG_Game
@@ -16,7 +18,7 @@ package GUIview;
 
 // Define the GameIntro class
 public class GameIntro {
-
+    
     // Define a static method that returns the game introduction
     public static String getIntroduction() {
         return "Welcome to our RPG game!\n\n"

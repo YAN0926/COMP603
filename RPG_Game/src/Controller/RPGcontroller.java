@@ -7,6 +7,8 @@
  *
  * Name: Chi Yan Cheung
  * SID: 15950216
+ * Ranger Ng
+ * SID: 20124370
  *
  * COMP603
  * Project 2 - RPG_Game
@@ -28,7 +30,7 @@ import java.sql.PreparedStatement;
 public class RPGcontroller {
 
     // Declare private member variables for database management
-    private DBManager dbManager;
+    DBManager dbManager;
     private Connection conn;
     private Statement statement;
 

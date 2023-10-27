@@ -3,8 +3,11 @@
  * The Attack class represents an attack action that a character (RPGmodel) can perform.
  * The execute method defines the logic for the attack, modifying the attacker's stats and printing out the updated stats.
  * The comments added to each line or section help explain the functionality and purpose of the code.
+ * 
  * Name: Chi Yan Cheung
  * SID: 15950216
+ * Ranger Ng
+ * SID: 20124370
  *
  * COMP603
  * Project 2 - RPG_Game
