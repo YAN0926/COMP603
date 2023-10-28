@@ -1,17 +1,20 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
 /**
  *
- * @author Renger NG
- * @author Chi Yan CHEUNG
+ * The Item class represents game items with attributes like name, type, attack bonus, and defense bonus.
+ * There are two constructors: one that takes individual attributes to create an item and another that constructs an item from a comma-separated string.
+ * The class provides getter methods to access item attributes and an overridden toString method to generate a descriptive string representation.
+ * Items can be of various types, such as swords or armor, each potentially providing bonuses to a player's attack or defense statistics.
+ *
+ * Name: Chi Yan CHEUNG SID: 15905216
+ * Name: Renger NG SID: 20124370
+ *
+ * COMP603 Software Development Project 2
+ *
  */
-
 package rpg_game;
 
 public class Item {
+
     private String name;
     private ItemType type;
     private int attackBonus; // Bonus attack points (for swords)

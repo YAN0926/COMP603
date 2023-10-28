@@ -1,10 +1,10 @@
 Player:
-Name: 1234
-Level: 3
-Experience: 0
-Health: 140
-Attack: 30
-Defense: 16
+Name: 123
+Level: 2
+Experience: 50
+Health: 95
+Attack: 25
+Defense: 13
 Inventory Items:
-Magic Wand,STAFF,5,0
+Iron Armor,ARMOR,0,5
 End Inventory Items

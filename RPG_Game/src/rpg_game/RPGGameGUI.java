@@ -1,28 +1,50 @@
+/**
+ *
+ * The RPGGameGUI class provides a graphical user interface for the RPG game.
+ * The GUI is built using Java's Swing framework and includes components like a main window (JFrame), panels (JPanel), buttons (JButton), and a menu bar (JMenuBar).
+ * The main window displays the game title "ELDEN SKY" and offers buttons to start a new game or load a saved one.
+ * When the game starts, the GUI displays the player's stats and provides a menu with game options.
+ * The GUI communicates with the game's logic via the GameEngine class.
+ * User actions, like button clicks, trigger corresponding methods in the game engine to process and update the game state.
+ * Additionally, the GUI has methods for displaying messages, prompting for player input, and updating player stats visually.
+ * The class concludes with a main method, launching the GUI when the program starts.
+ *
+ * Name: Chi Yan CHEUNG SID: 15905216
+ * Name: Renger NG SID: 20124370
+ *
+ * COMP603 Software Development Project 2
+ *
+ */
 package rpg_game;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
+// This class serves as the primary GUI interface for the RPG game, facilitating user interaction and game visualization
 public class RPGGameGUI {
-    private JFrame frame;
-    private JPanel panel;
-    private JButton newGameButton;
-    private JButton loadGameButton;
+
+    // Member variables for GUI components and game state
+    private JFrame frame; // Main game window
+    private JPanel panel; // Primary content panel
+    private JButton newGameButton; // Button to start a new game
+    private JButton loadGameButton; // Button to load a saved game
     private GameEngine gameEngine; // Reference to your game engine
-    private String playerName;
+    private String playerName; // Name of the player
 
     private JMenuBar menuBar; // Menu bar reference
-    
-    private JPanel gifPanel;
-    
-    private JLabel playerAttackLabel;
-    private JLabel playerDefenseLabel;
-    private JProgressBar playerHPBar;
 
+    private JPanel gifPanel; // Panel to display game-related GIF
+
+    private JLabel playerAttackLabel; // Label displaying player's attack stat
+    private JLabel playerDefenseLabel; // Label displaying player's defense stat
+    private JProgressBar playerHPBar; // Progress bar showing player's health
+
+    // Constructor to initialize and set up the main GUI components
     public RPGGameGUI() {
-        
+
         frame = new JFrame("Your RPG Game Name");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(1000, 650);
@@ -47,12 +69,9 @@ public class RPGGameGUI {
         panel.add(buttonPanel, BorderLayout.SOUTH); // Add the buttonPanel to the bottom (SOUTH) of the main panel
 
         frame.add(panel);
-        
-
-
 
         gameEngine = new GameEngine(this); // Initialize your game engine with a reference to this GUI
-        
+
         gifPanel = new JPanel();
         panel.add(gifPanel); // Add the GIF panel to the main panel
 
@@ -85,7 +104,7 @@ public class RPGGameGUI {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-            	gameEngine.loadGame();
+                gameEngine.loadGame();
                 setMenuBarVisible(true); // Show the menu bar after loading the game
                 addGifImageToGUI();
             }
@@ -94,7 +113,6 @@ public class RPGGameGUI {
         // Initially, hide the menu bar
         setMenuBarVisible(false);
     }
-    
 
     // Method to create the menu bar and menu items
     private JMenuBar createMenuBar() {
@@ -149,7 +167,7 @@ public class RPGGameGUI {
         quitMenuItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-            	JOptionPane.showMessageDialog(frame, "Thank you for playing");
+                JOptionPane.showMessageDialog(frame, "Thank you for playing");
                 frame.dispose();
             }
         });
@@ -167,7 +185,7 @@ public class RPGGameGUI {
 
         return menuBar;
     }
-    
+
     private void addGifImageToGUI() {
         // Create a JLabel to display the GIF
         ImageIcon icon = new ImageIcon("./resources/RPG.gif");
@@ -208,7 +226,6 @@ public class RPGGameGUI {
         frame.revalidate();
     }
 
-
     // Method to display a message with options
     public void displayMessageWithOptions(String message, List<String> options) {
 
@@ -238,28 +255,27 @@ public class RPGGameGUI {
 
     // Method to display a message
     public void displayMessage(String message) {
-    	JOptionPane.showMessageDialog(frame, message);
+        JOptionPane.showMessageDialog(frame, message);
     }
 
     // Method to get the player's name
     public String promptForPlayerName() {
-    	return JOptionPane.showInputDialog(frame, "Enter your name:");
+        return JOptionPane.showInputDialog(frame, "Enter your name:");
     }
 
     public void show() {
         frame.setVisible(true);
     }
-    
+
     public void updatePlayerInfo(int hp, int attack, int defense) {
 
-    	playerHPBar.setMaximum(gameEngine.player.getMaxHealth());
+        playerHPBar.setMaximum(gameEngine.player.getMaxHealth());
         playerHPBar.setValue(hp);
         playerHPBar.setString("HP: " + hp);
         playerAttackLabel.setText("Attack: " + attack);
         playerDefenseLabel.setText("Defense: " + defense);
-     // Calculate the threshold value for 50% HP
+        // Calculate the threshold value for 50% HP
         int thresholdValue = gameEngine.player.getMaxHealth() / 2;
-
 
         // Update the HP bar color based on the current HP value
         if (gameEngine.player.getHealth() < thresholdValue) {
@@ -269,18 +285,20 @@ public class RPGGameGUI {
         }
     }
 
-	public JFrame getFrame() {
-		// TODO Auto-generated method stub
-		return frame;
-	}
-	
-	public int showDefeatDialog() {
-	    Object[] options = {"Start New Game", "Load Saved Game"};
-	    int choice = JOptionPane.showOptionDialog(frame, "You have been defeated. What would you like to do?", "Defeated",
-	            JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
-	    return choice; // Return the player's choice (0 for New Game, 1 for Load Saved Game)
-	}
-	
+    public JFrame getFrame() {
+        // TODO Auto-generated method stub
+        return frame;
+    }
+
+    // Method to display a dialog when the player is defeated, offering restart or load options
+    public int showDefeatDialog() {
+        Object[] options = {"Start New Game", "Load Saved Game"};
+        int choice = JOptionPane.showOptionDialog(frame, "You have been defeated. What would you like to do?", "Defeated",
+                JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+        return choice; // Return the player's choice (0 for New Game, 1 for Load Saved Game)
+    }
+
+    // Main method to initialize and launch the game's GUI
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             @Override

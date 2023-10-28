@@ -1,14 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
 /**
+ * This is the class to defines different types of items that can be use.
  *
- * @author Renger NG
- * @author Chi Yan CHEUNG
+ * Name: Chi Yan CHEUNG SID: 15905216
+ * Name: Renger NG SID: 20124370
+ *
+ * COMP603 Software Development Project 2
+ *
  */
-
 package rpg_game;
 
 //enum defines different types of items that can be used in RPG game

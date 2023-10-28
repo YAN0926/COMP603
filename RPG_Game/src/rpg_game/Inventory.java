@@ -1,25 +1,26 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
 /**
  *
- * @author Renger NG
- * @author Chi Yan CHEUNG
+ * The Inventory class represents a player's collection of game items. This class manages a list of items, When adding an item, the method ensures that no duplicates (based on the item's name) are added.
+ * The design emphasizes encapsulation, as direct modifications to the internal item list are prevented, and interactions are managed through provided methods.
+ *
+ * Name: Chi Yan CHEUNG SID: 15905216
+ * Name: Renger NG SID: 20124370
+ *
+ * COMP603 Software Development Project 2
+ *
  */
-
 package rpg_game;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Inventory {
+
     private List<Item> items;
 
     public Inventory() {
         items = new ArrayList<>();
-        
+
     }
     //Add an item to the inventory if it doesn't already exist
 
@@ -33,7 +34,7 @@ public class Inventory {
             }
         }
     }
-    
+
     public void addItems(List<Item> newItems) {
         for (Item newItem : newItems) {
             addItem(newItem);
@@ -49,7 +50,7 @@ public class Inventory {
     public List<Item> getItems() {
         return items;
     }
-    
+
     // Clear all items from the inventory
     public void clearItems() {
         items.clear();

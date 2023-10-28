@@ -1,3 +1,16 @@
+/**
+ *
+ * The FileIOManager class in the RPG game is responsible for saving and loading game data to and from a file.
+ * It defines constants to specify the save directory and file name. The saveGame method writes the player's attributes and their inventory items to a text file, creating the save directory if it doesn't exist.
+ * Conversely, the loadGame method reads the game data from this file, parsing player attributes and their inventory items, and constructs the GameData object to represent the loaded state.
+ * Errors during these operations are captured and logged.
+ *
+ * Name: Chi Yan CHEUNG SID: 15905216
+ * Name: Renger NG SID: 20124370
+ *
+ * COMP603 Software Development Project 2
+ *
+ */
 package rpg_game;
 
 import java.io.BufferedReader;
@@ -8,11 +21,15 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+// This class manages file input/output operations for saving and loading game data
 public class FileIOManager {
+
+    // Constants defining the save directory and file path
     private static final String SAVE_DIRECTORY_PATH = "./resources/saves";
     private static final String SAVE_FILE_NAME = "game_save.txt";
     private static final String SAVE_FILE_PATH = SAVE_DIRECTORY_PATH + File.separator + SAVE_FILE_NAME;
 
+    // Save the game data to a file
     public static void saveGame(GameData gameData) {
         try {
             File directory = new File(SAVE_DIRECTORY_PATH);
@@ -32,6 +49,7 @@ public class FileIOManager {
             writer.write("Attack: " + gameData.getPlayer().getAttack() + "\n");
             writer.write("Defense: " + gameData.getPlayer().getDefense() + "\n");
 
+            // Write inventory items to file
             writer.write("Inventory Items:\n");
             for (Item item : gameData.getInventory().getItems()) {
                 writer.write(item.getName() + "," + item.getType() + "," + item.getAttackBonus() + "," + item.getDefenseBonus() + "\n");
@@ -45,11 +63,11 @@ public class FileIOManager {
         }
     }
 
+    // Load the game data from a file
     public static GameData loadGame() {
         Character player = null;
         Inventory inventory = new Inventory();
 
-        
         try {
             // Create a FileReader to read game data from the text file
             FileReader reader = new FileReader(SAVE_FILE_PATH);
@@ -96,7 +114,6 @@ public class FileIOManager {
                 }
             }
 
-
             // Close the reader
             bufferedReader.close();
 
@@ -112,13 +129,12 @@ public class FileIOManager {
             inventory.clearItems();
 
             // Add items to inventoryItems...
-
             inventory.addItems(inventoryItems); // Add the list of items to the inventory
 
         } catch (IOException e) {
             System.err.println("Error loading game data: " + e.getMessage());
         }
 
-        return new GameData(player, inventory);
+        return new GameData(player, inventory); // Return loaded game data
     }
 }
