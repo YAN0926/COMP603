@@ -22,18 +22,32 @@ public class RPGGameGUI {
     private JProgressBar playerHPBar;
 
     public RPGGameGUI() {
-        frame = new JFrame("RPG Game");
+        
+        frame = new JFrame("Your RPG Game Name");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(400, 300);
+        frame.setSize(1000, 650);
 
-        panel = new JPanel();
-        frame.add(panel);
+        panel = new JPanel(new BorderLayout()); // Use BorderLayout for the panel
+
+        // Add a JLabel for the game name at the top
+        JLabel gameNameLabel = new JLabel("         ELDEN SKY");
+        gameNameLabel.setFont(new Font("Arial", Font.BOLD, 90)); // Customize font and size
+        panel.add(gameNameLabel, BorderLayout.NORTH); // Add the label to the top (NORTH) of the panel
+
+        // Create a panel for the buttons at the bottom
+        JPanel buttonPanel = new JPanel(new FlowLayout());
 
         newGameButton = new JButton("Start New Game");
         loadGameButton = new JButton("Load Saved Game");
 
-        panel.add(newGameButton);
-        panel.add(loadGameButton);
+        buttonPanel.add(newGameButton); // Add the "Start New Game" button
+        buttonPanel.add(Box.createGlue()); // Add some space to push the "Load Saved Game" button to the right
+        buttonPanel.add(loadGameButton); // Add the "Load Saved Game" button to the right
+
+        panel.add(buttonPanel, BorderLayout.SOUTH); // Add the buttonPanel to the bottom (SOUTH) of the main panel
+
+        frame.add(panel);
+        
 
 
 
@@ -155,11 +169,11 @@ public class RPGGameGUI {
     }
     
     private void addGifImageToGUI() {
-
         // Create a JLabel to display the GIF
-        JLabel gifLabel = new JLabel();
-        gifLabel.setIcon(new javax.swing.ImageIcon("./resources/RPG.gif"));
-        
+        ImageIcon icon = new ImageIcon("./resources/RPG.gif");
+        Image img = icon.getImage().getScaledInstance(1000, 540, Image.SCALE_DEFAULT);
+        icon = new ImageIcon(img);
+        JLabel gifLabel = new JLabel(icon);
 
         // Add the JLabel to your GUI panel
         panel.add(gifLabel);

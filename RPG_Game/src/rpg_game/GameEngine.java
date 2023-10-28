@@ -13,7 +13,7 @@ public class GameEngine  {
     public Character player;
     private Enemy currentEnemy;
     public Inventory myInventory;
-    private List<Item> availableItems;
+    List<Item> availableItems;
     public boolean gameFinished;
     private static Random random;
     private int totalBonusAttack;
@@ -303,11 +303,11 @@ public class GameEngine  {
         // Implement your quest selection logic here (e.g., using a dialog or GUI input)
         // For simplicity, let's assume a default quest is chosen
         String[] options = {
-            "EASY(1)",
-            "MEDIUM(2)",
-            "HARD(3)",
-            "VERY_HARD(4)",
-            "EXTREME(5)"
+            "Defeat a Skeleton(Easy)",
+            "Defeat a Goblin (Medium)",
+            "Defeat a Elves (Hard)",
+            "Defeat a Orcs(Very hard)",
+            "Defeat a Dragons (Extreme)"
         };
         
         String selectedOption = (String) JOptionPane.showInputDialog(
